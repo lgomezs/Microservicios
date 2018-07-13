@@ -1,0 +1,7 @@
+pe\gob\react\react\swagger\config\SwaggerConfig.class
+pe\gob\react\react\service\ContactoService.class
+pe\gob\react\react\model\Contacto.class
+pe\gob\react\react\Application.class
+pe\gob\react\react\controller\ContactoController.class
+pe\gob\react\react\model\ErrorResponse.class
+pe\gob\react\react\repository\ContactoRepository.class
