@@ -1,0 +1,11 @@
+--create keyspace
+CREATE KEYSPACE hr
+WITH replication = {
+	'class' : 'SimpleStrategy',
+	'replication_factor' : 1
+};
+
+--insert data
+insert into contacto(id,email,firstname,fono,lastname)
+values('1','lmgomez@gmail.com','LUIS MIGUEL','2333','GOMEZ');
+select * from contacto;
