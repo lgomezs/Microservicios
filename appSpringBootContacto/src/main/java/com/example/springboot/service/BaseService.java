@@ -17,9 +17,9 @@ public interface BaseService<E,ID> {
 	
 	Mono<E> update(E entity)throws Exception;
 	
-	Mono<Void> delete(E entity)throws Exception;
-	
 	Mono<Void> deleteById(ID id)throws Exception;
 		
-	Mono<E> findById(ID id)throws Exception;	
+	Mono<E> findById(ID id)throws Exception;
+	
+	Mono<Void> delete(E entity);
 }

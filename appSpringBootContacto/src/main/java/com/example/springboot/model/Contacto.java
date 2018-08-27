@@ -18,12 +18,12 @@ public class Contacto implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@PrimaryKey
+	@PrimaryKey		
 	private String id;
 	@Column
 	private String firstName;
 	@Column
-	private String lastnames;
+	private String lastname;
 	@Column
 	private String email;	
 	@Column
@@ -38,13 +38,14 @@ public class Contacto implements Serializable {
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+	
 
-	public String getLastnames() {
-		return lastnames;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setLastnames(String lastnames) {
-		this.lastnames = lastnames;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
 	public String getEmail() {

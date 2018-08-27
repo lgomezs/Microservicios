@@ -48,8 +48,7 @@ public class ContactoServiceImpl implements ContactoService{
 	}
 
 	@Override
-	public Mono<Void> delete(Contacto entity) throws Exception {
-		// TODO Auto-generated method stub
+	public Mono<Void> delete(Contacto entity) {	
 		return contactoRepository.delete(entity);
 	}
 
