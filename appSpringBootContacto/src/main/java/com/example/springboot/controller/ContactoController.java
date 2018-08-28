@@ -47,7 +47,7 @@ public class ContactoController {
 			return contactoService.update(contacto);
 	}	
 	
-	@PostMapping("/getContacto/{getID}")
+	@GetMapping("/getContacto/{getID}")
 	public Mono<ResponseEntity<Contacto>> getContactoByID(@PathVariable(value="getID") String getID) throws Exception{
 		return contactoService.findById(getID).map(
 				saveContacto -> ResponseEntity.ok(saveContacto))
