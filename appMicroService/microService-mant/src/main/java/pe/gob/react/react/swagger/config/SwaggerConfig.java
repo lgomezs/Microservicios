@@ -20,7 +20,7 @@ public class SwaggerConfig {
 	@Bean
     public Docket sadrApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("MICROSERVICIO")
+                .groupName("REST-REACT")
                 .apiInfo(apiInfo())
                 .select()
                     .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))

@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: microService-mant-balanceo
+  cloud:
+    config:
+      failFast: false
+      #uri: http://config-server:8888
+      uri: http://localhost:8888
+      

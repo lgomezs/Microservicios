@@ -14,7 +14,7 @@ spring:
   cloud:
     config:
       server:
-        git:
+        git:  #Ruta de tu repositorio de configuracion
           uri: https://github.com/lgomezs/spring-respository-config
 
 

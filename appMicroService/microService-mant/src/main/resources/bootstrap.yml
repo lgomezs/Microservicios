@@ -1,7 +1,16 @@
 spring:  
   application:
-    name: microService-service
+    name: microService-mant
   cloud:
     config:
       failFast: false
-      uri: http://config-server:8888
+      #uri: http://config-server:8888
+      uri: http://localhost:8888
+      
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'INFO'
+    org.springframework.web: 'INFO'
+    com.atsistemas: 'DEBUG'

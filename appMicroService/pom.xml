@@ -11,7 +11,7 @@
  	<module>swagger-config</module>
  	<module>eureka-server</module>
  	<module>microService-mant</module>
- 	<module>deneb</module>
+ 	<module>microService-mant-balanceo</module>
  </modules>
  
  
