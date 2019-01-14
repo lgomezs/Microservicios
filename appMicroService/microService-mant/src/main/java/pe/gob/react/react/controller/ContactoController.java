@@ -40,7 +40,7 @@ public class ContactoController {
 	      @ApiResponse(code = 403, message = "Está prohibido acceder al recurso que intentabas acceder"),
 	      @ApiResponse(code = 404, message = "Recurso no encontrado. "),	  
 	          })
-	public @ResponseBody List<Contacto> getContacto() {
+	public List<Contacto> getContacto() {
 		return contactoService.listAllContact();
 	}
 	
@@ -54,7 +54,7 @@ public class ContactoController {
 	      @ApiResponse(code = 403, message = "Está prohibido acceder al recurso que intentabas acceder"),
 	      @ApiResponse(code = 404, message = "Recurso no encontrado. "),	  
 	          })
-	public @ResponseBody Contacto saveContacto(@Valid @RequestBody Contacto contacto){
+	public  Contacto saveContacto(@Valid @RequestBody Contacto contacto){
 		return contactoService.saveContacto(contacto);		
 	}
 	
@@ -67,7 +67,7 @@ public class ContactoController {
 	      @ApiResponse(code = 403, message = "Está prohibido acceder al recurso que intentabas acceder"),
 	      @ApiResponse(code = 404, message = "Recurso no encontrado. "),	  
 	          })
-	public @ResponseBody Contacto getContactoByID(@PathVariable(value="getID") String getID){
+	public Contacto getContactoByID(@PathVariable(value="getID") String getID){
 		return contactoService.getContactoByID(getID);
 	}
 		
@@ -80,7 +80,7 @@ public class ContactoController {
 	      @ApiResponse(code = 403, message = "Está prohibido acceder al recurso que intentabas acceder"),
 	      @ApiResponse(code = 404, message = "Recurso no encontrado. "),	  
 	          })
-	public @ResponseBody void deleteContactoByID(@PathVariable(value="getID") String getID){	
+	public  void deleteContactoByID(@PathVariable(value="getID") String getID){	
 		contactoService.deleteContactoByID(new Contacto(getID));
 	}	
 	

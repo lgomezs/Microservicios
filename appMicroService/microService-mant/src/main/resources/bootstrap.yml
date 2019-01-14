@@ -3,7 +3,7 @@ spring:
     name: microService-mant
   cloud:
     config:
-      failFast: false
+      failFast: true
       #uri: http://config-server:8888
       uri: http://localhost:8888
       

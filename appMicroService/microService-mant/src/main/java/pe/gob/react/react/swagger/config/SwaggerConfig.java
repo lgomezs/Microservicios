@@ -9,6 +9,7 @@ import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -21,7 +22,7 @@ public class SwaggerConfig {
     public Docket sadrApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("REST-REACT")
-                .apiInfo(apiInfo())
+                .apiInfo(appInfo())
                 .select()
                     .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
                     .paths(PathSelectors.any())
@@ -31,16 +32,18 @@ public class SwaggerConfig {
                 .useDefaultResponseMessages(false);
     }
 	
-	private ApiInfo apiInfo() {
-        return new ApiInfoBuilder()
-                .title("microSErvice-mant")
-                .description("Aplicacion usando config-server, eureka y mongodb")
-                .version("1.0")
-                .termsOfServiceUrl("https://es.wikipedia.org/wiki/Sadr")
-                .license("Open source licensing")
-                .licenseUrl("https://help.github.com/articles/open-source-licensing/")
-                .build();
-    }
-	
-	
+	/**
+	 * About our API
+	 * @return
+	 */
+	private ApiInfo appInfo() {
+		//ApiInfo _aApiInfo = new ApiInfo(title, description, version, termsOfServiceUrl, contact, license, licenseUrl);		
+		return new ApiInfo("Application - Services REST and connection to Mongo", 
+						"Application Services RES - microService-mant", 
+						"1.0", 
+						"services", 
+						new Contact("Luis Miguel Gomez", "https://github.com/lgomezs", "lmgomez.saavedra@gmail.com"), 
+						"Apache License Version 2.0",
+						 "https://github.com/lgomezs");		
+	}	
 }

@@ -1,0 +1,5 @@
+pe\gob\react\deneb\config\DenebConfig.class
+pe\gob\react\deneb\controller\DenebController.class
+META-INF\spring-configuration-metadata.json
+pe\gob\react\deneb\Application.class
+pe\gob\react\deneb\service\MicroServiceClient.class

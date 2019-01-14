@@ -1,5 +1,7 @@
 package pe.gob.react.deneb.service;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,21 +10,29 @@ import org.springframework.web.client.RestTemplate;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
+import pe.gob.react.react.config.ErrorResponse;
 import pe.gob.react.react.model.Contacto;
-import pe.gob.react.react.model.ErrorResponse;
 
-@ConfigurationProperties(prefix="microServiceRest.microService-mant")
+//@Service
+@ConfigurationProperties(prefix="microServiceRest.microService")
 public class MicroServiceClient {
 
 	private static Logger logger = LoggerFactory.getLogger(MicroServiceClient.class);	
 	private String pingUrl;
-	
+		
 	@Autowired
 	private RestTemplate restTemplate;
-
+//
+//	@Autowired
+//	public MicroServiceClient(RestTemplate restTemplate) {
+//		this.restTemplate=restTemplate;	
+//	}
+	
+	
 	@HystrixCommand(fallbackMethod="retrieveFallbackGetContactos")
-	public Contacto getContactos(){	
-		return restTemplate.getForObject(pingUrl + "/getContacto", Contacto.class);				
+	public List<Contacto> getContactos(){	
+		logger.debug("--> getContactos received - id: {} - content: {}");		
+		return restTemplate.getForObject(pingUrl + "/getContacto", List.class);				
 	}
 	
 	@HystrixCommand(fallbackMethod="retrieveFallbackSaveContactos")
@@ -32,7 +42,7 @@ public class MicroServiceClient {
 	
 	@HystrixCommand(fallbackMethod="retrieveFallbackGetContacto")
 	public Contacto getContactoByID(String id){		
-		return restTemplate.getForObject(pingUrl + "/getContacto/{getID}", Contacto.class, id);	
+		return restTemplate.getForObject("http://localhost:331/contacto/getContacto/{getID}", Contacto.class, id);	
 	}
 	
 	@HystrixCommand(fallbackMethod="retrieveFallbackDeleteContacto")
@@ -45,12 +55,12 @@ public class MicroServiceClient {
 		return new ErrorResponse("Error en eliminar contacto.");
 	}
 	
-	public ErrorResponse retrieveFallbackGetContacto(){
-		return new ErrorResponse("Error en recuperar contacto.");
+	public Contacto retrieveFallbackGetContacto(String id){
+		return new Contacto("Error en recuperar contacto.");
 	}
 	
-	public ErrorResponse retrieveFallbackGetContactos(){
-		return new ErrorResponse("Error en recupera lista de contactos");
+	public Contacto retrieveFallbackGetContactos(){
+		return new Contacto("Error en recupera lista de contactos");
 	}
 	
 	public ErrorResponse retrieveFallbackSaveContactos(){
